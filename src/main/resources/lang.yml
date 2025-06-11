@@ -1,7 +1,8 @@
 # Placeholders and HEX codes are supported.
 
 # Format of the plugin's main message
-# {PLAYER} - the player, {COMMAND} - the command entered by the player.
+# {PLAYER} - command sender (you can use %player_name%)
+# {COMMAND} - the command entered by the player.
 message-style: '&a{PLAYER} &7is using the server command: &a{COMMAND}'
 
 no-perms: '&cYou do not have permission to do that.'

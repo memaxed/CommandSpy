@@ -51,7 +51,7 @@ public class Lang {
 		this.CSpyCheckOtherEnabled = get("cspy-check-other-enabled");
 		this.CSpyCheckOtherDisabled = get("cspy-check-other-disabled");
 		this.CSpyFeedbackEnabled = get("cspy-feedback-enabled");
-		this.CSpyCheckDisabled = get("cspy-feedback-disabled");
+		this.CSpyFeedbackDisabled = get("cspy-feedback-disabled");
 		this.msgStyle = get("message-style");
 	}
 	
@@ -114,7 +114,7 @@ public class Lang {
 	}
 	
 	public String getMessageStyle(Player player, String command) {
-		String result = this.msgStyle.replace("{COMMAND}", command);
+		String result = this.msgStyle.replace("{COMMAND}", command).replace("{PLAYER}", player.getName());
 		return papi(result, player);
 	}
 	
