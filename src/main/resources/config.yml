@@ -1,0 +1,34 @@
+#CommandSpy settings file
+
+#Perm for usage "/cspy" command
+cspy-perm: 'cspy.use'
+
+#Perm for usage "/cspy" command to others
+cspy-other-perm: 'cspy.use.other'
+
+#Perm for bypassing surveillance
+cspy-bypass-perm: 'cspy.bypass'
+
+#Perm for use "/cspycheck" command
+cspy-check-perm: 'cspy.check.use'
+
+#Perm for use "/cspycheck" command to others
+cspy-check-other-perm: 'cspy.check.use.other'
+
+#Perm for use "/cspyreload" command
+cspy-reload-perm: 'cspy.reload'
+
+#Should players be informed that they have had spying mode turned on/off by other player?
+other-feedback: true
+
+#List of ignored commands that do not need to be tracked
+ignore-commands:
+ - login
+ - l
+ - register
+ - reg
+ - r
+ - msg
+ - tell
+ - send
+
