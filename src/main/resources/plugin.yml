@@ -6,10 +6,10 @@ api-version: 1.16
 softdepend: [PlaceholderAPI]
 commands:
  cspy:
-  description: "Чекать команды игроков"
+  description: "Toggle command tracking mode"
   usage: /cspy [player]
  cspycheck:
-  description: 'Включено или выключено у вас отслеживание'
+  description: 'Check command tracking mode'
   usage: /cspycheck [player]
  cspyreload:
   description: 'Reload CommandSpy plugin'

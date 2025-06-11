@@ -52,7 +52,7 @@ public class Playerdata {
 	public void setPlayerCSpy(Player player, boolean value) {
 		UUID uuid = player.getUniqueId();
 		String id = uuid.toString();
-		fc.set(id + ".cspy-enabled", true);
+		fc.set(id + ".cspy-enabled", value);
 		try {
 			fc.save(playerData);
 		} catch (IOException e) {
