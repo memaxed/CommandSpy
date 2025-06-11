@@ -14,6 +14,8 @@ public class Lang {
 	private CSpy plugin;
 	private File langFile;
 	private FileConfiguration lang;
+	private boolean papi;
+	
 	private String noPerms;
 	private String WWP;
 	private String PIO;
@@ -31,6 +33,7 @@ public class Lang {
 	
 	Lang(CSpy plugin) {
 		this.plugin = plugin;
+		this.papi = plugin.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null; 
 		this.langFile = new File(this.plugin.getDataFolder() + File.separator + "lang.yml");
 		if(!this.langFile.exists()) {
 			plugin.saveResource("lang.yml", false);
@@ -56,11 +59,18 @@ public class Lang {
 		return Tools.color(lang.getString(index));
 	}
 	
+	private String papi(String str, Player player) {
+		if(papi) {
+			return PlaceholderAPI.setPlaceholders(player, str);
+		}
+		return str;
+	}
+	
 	public String getNoPermissionsMessage(Player player) {
 		if(player == null) {
-			return this.noPerms;
+			return noPerms;
 		}
-		return PlaceholderAPI.setPlaceholders(player, this.noPerms);
+		return papi(noPerms, player);
 	}
 	
 	public String getWorkWithPlayerMessage() {
@@ -68,52 +78,52 @@ public class Lang {
 	}
 	
 	public String getPlayerIsOfflineMessage(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.PIO);
+		return papi(PIO, player);
 	}
 	
 	public String getCSpyEnabledMessage(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.CSpyEnabled);
+		return papi(CSpyEnabled, player);
 	}
 	
 	public String getCSpyDisabledMessage(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.CSpyDisabled);
+		return papi(CSpyDisabled, player);
 	}
 	
 	public String getCSpyEnabledOtherMessage(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.CSpyEnabledOther);
+		return papi(CSpyEnabledOther, player);
 	}
 	
 	public String getCSpyDisabledOtherMessage(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.CSpyDisabledOther);
+		return papi(CSpyDisabledOther, player);
 	}
 	
 	public String getCSpyCheckEnabledMessage(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.CSpyCheckEnabled);
+		return papi(CSpyCheckEnabled, player);
 	}
 	
 	public String getCSpyCheckDisabledMessage(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.CSpyCheckDisabled);
+		return papi(CSpyCheckDisabled, player);
 	}
 	
 	public String getCSpyCheckOtherEnabledMessage(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.CSpyCheckOtherEnabled);
+		return papi(CSpyCheckOtherEnabled, player);
 	}
 	
 	public String getCSpyCheckOtherDisabledMessage(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.CSpyCheckOtherDisabled);
+		return papi(CSpyCheckOtherDisabled, player);
 	}
 	
 	public String getMessageStyle(Player player, String command) {
 		String result = this.msgStyle.replace("{COMMAND}", command);
-		return PlaceholderAPI.setPlaceholders(player, result);
+		return papi(result, player);
 	}
 	
 	public String getFeedbackEnabled(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.CSpyFeedbackEnabled);
+		return papi(CSpyFeedbackEnabled, player);
 	}
 	
 	public String getFeedbackDisabled(Player player) {
-		return PlaceholderAPI.setPlaceholders(player, this.CSpyFeedbackDisabled);
+		return papi(CSpyFeedbackDisabled, player);
 	}
 	
 	public String getReloaded() {
