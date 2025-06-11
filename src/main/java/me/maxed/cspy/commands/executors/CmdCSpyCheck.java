@@ -60,10 +60,10 @@ public class CmdCSpyCheck implements CommandExecutor {
 			Player target = Bukkit.getPlayer(targetName);
 			boolean check = data.isEnabledCSpy(target);
 			if(check) {
-				player.sendMessage(lang.getCSpyCheckEnabledMessage(target));
+				player.sendMessage(lang.getCSpyCheckOtherEnabledMessage(target));
 				return true;
 			}
-			player.sendMessage(lang.getCSpyCheckDisabledMessage(target));
+			player.sendMessage(lang.getCSpyCheckOtherDisabledMessage(target));
 			
 			return true;
 		} 

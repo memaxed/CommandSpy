@@ -4,27 +4,34 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Hex {
+	
     private static final Pattern hex = Pattern.compile("#[0-9a-fA-F]{6}");
     private static final Pattern fix2 = Pattern.compile("\\{#[0-9a-fA-F]{6}\\}");
     private static final Pattern fix3 = Pattern.compile("\\&x[\\&0-9a-fA-F]{12}");
     private static final Pattern gradient1 = Pattern.compile("<#[0-9a-fA-F]{6}>[^<]*</#[0-9a-fA-F]{6}>");
     private static final Pattern gradient2 = Pattern.compile("\\{#[0-9a-fA-F]{6}>\\}[^\\{]*\\{#[0-9a-fA-F]{6}<\\}");
+    
     public static class TextColor {
+    	
         private final int red;
         private final int green;
         private final int blue;
+        
         public TextColor(String hexCode) {
             int hexColor = Integer.parseInt(hexCode.substring(1), 16);
             this.red = (hexColor >> 16) & 0xFF;
             this.green = (hexColor >> 8) & 0xFF;
             this.blue = hexColor & 0xFF;
         }
+        
         public int getRed() {
             return red;
         }
+        
         public int getGreen() {
             return green;
         }
+        
         public int getBlue() {
             return blue;
         }
@@ -65,9 +72,11 @@ public class Hex {
         }
         return text.replace("&", "§");
     }
+    
     private static String fixFormat1(String text) {
         return text.replace("&#", "#");
     }
+    
     private static String fixFormat2(String input) {
         String text = input;
         Matcher m = fix2.matcher(text);
@@ -78,6 +87,7 @@ public class Hex {
         }
         return text;
     }
+    
     private static String fixFormat3(String text) {
         text = text.replace('§', '&');
         Matcher m = fix3.matcher(text);
@@ -91,6 +101,7 @@ public class Hex {
         }
         return text;
     }
+    
     private static String setGradient1(String input) {
         String text = input;
         Matcher m = gradient1.matcher(text);
@@ -104,6 +115,7 @@ public class Hex {
         }
         return text;
     }
+    
     private static String setGradient2(String input) {
         String text = input;
         Matcher m = gradient2.matcher(text);
@@ -117,6 +129,7 @@ public class Hex {
         }
         return text;
     }
+    
     private static String asGradient(TextColor start, String text, TextColor end) {
         StringBuilder sb = new StringBuilder();
         int length = text.length();

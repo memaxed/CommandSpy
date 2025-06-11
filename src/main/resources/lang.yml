@@ -1,4 +1,5 @@
-# Placeholders and HEX codes are supported.
+# For correct messages display use PlaceholderAPI.
+# HEX codes are supported.
 
 # Format of the plugin's main message
 # {PLAYER} - command sender (you can use %player_name%)
@@ -11,7 +12,7 @@ work-with-player: '&cYou must be a player to do that.'
 
 player-is-offline: '&cThat player is not online.'
 
-cspy-plugin-reloaded: '<#00ffff>CSpy<#10ffff> has been reloaded.'
+cspy-plugin-reloaded: '&a[CommandSpy] &7Plugin has been reloaded.'
 
 cspy-enabled: '&fYou have &aenabled&f command tracking mode.'
 

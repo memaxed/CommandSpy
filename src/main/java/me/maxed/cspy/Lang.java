@@ -7,7 +7,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 import me.clip.placeholderapi.PlaceholderAPI;
-import me.maxed.cspy.util.Tools;
+import me.maxed.cspy.util.Hex;
 
 public class Lang {
 	
@@ -56,7 +56,7 @@ public class Lang {
 	}
 	
 	private String get(String index) {
-		return Tools.color(lang.getString(index));
+		return Hex.toChatColorString(lang.getString(index));
 	}
 	
 	private String papi(String str, Player player) {
@@ -129,4 +129,9 @@ public class Lang {
 	public String getReloaded() {
 		return get("cspy-plugin-reloaded");
 	}
+	
+	boolean isPapiEnabled() {
+		return papi;
+	}
+	
 }

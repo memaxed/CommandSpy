@@ -60,6 +60,4 @@ public class Cfg {
 		return cfg.getString("cspy-reload-perm");
 	}
 	
-	
-	
 }
