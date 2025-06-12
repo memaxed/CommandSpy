@@ -1,4 +1,5 @@
-![CSpy Logo](./assets/logo.png)
+<p align="center"><img src="./assets/logo.png" alt="Logo"></p>
+
 ## Summary
 This is a simple and free plugin that adds a command tracking system to your Spigot server. This feature is mainly intended for server-staff: helpers, moderators and administrators. Granting access to regular players or donators is not recommended. To use the plugin correctly, you need to have permission management plugin such as LuckPerms as well as PlaceholderAPI for proper message displaying.
 
