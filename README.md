@@ -1,12 +1,11 @@
 <p align="center"><img src="./assets/logo.png" alt="Logo"></p>
 
-## Summary
+## About
 This is a simple and free plugin that adds a command tracking system to your Spigot server. This feature is mainly intended for server-staff: helpers, moderators and administrators. Granting access to regular players or donators is not recommended. To use the plugin correctly, you need to have permission management plugin such as LuckPerms as well as PlaceholderAPI for proper message displaying.
 
 ## Commands
 The plugin introduces the following commands:
-- `/cspy` — Enables or disables your own command tracking mode (similar to `/spy` in server-core plugins).
-- `/cspy <player>` — Enables or disables tracking mode for another player.
+- `/cspy [player]` — Enables or disables your/other command tracking mode (similar to `/spy` in server-core plugins).
 - `/cspycheck [player]` — Checks whether you or another player is currently in tracking mode.
 - `/cspyreload` — Reloads the plugin's configuration (admin-only).
 
