@@ -1,9 +1,9 @@
-# For correct messages display use PlaceholderAPI.
-# HEX codes are supported.
+#For correct messages display use PlaceholderAPI.
+#1.16+ HEX codes are supported.
 
-# Format of the plugin's main message
-# {PLAYER} - command sender (you can use %player_name%)
-# {COMMAND} - the command entered by the player.
+#Format of the plugin's main message
+#{PLAYER} - command sender (you can use %player_name%)
+#{COMMAND} - the command entered by the player.
 message-style: '&a{PLAYER} &7is using the server command: &a{COMMAND}'
 
 no-perms: '&cYou do not have permission to do that.'
@@ -12,7 +12,7 @@ work-with-player: '&cYou must be a player to do that.'
 
 player-is-offline: '&cThat player is not online.'
 
-cspy-plugin-reloaded: '&a[CommandSpy] &7Plugin has been reloaded.'
+cspy-plugin-reloaded: '&7[&aCommandSpy&7] &7Plugin has been reloaded.'
 
 cspy-enabled: '&fYou have &aenabled&f command tracking mode.'
 

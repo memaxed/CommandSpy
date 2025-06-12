@@ -29,6 +29,8 @@ public class CommandSend implements Listener {
 		
 		Lang lang = plugin.getLang();
 		for(Player target : Bukkit.getOnlinePlayers()) {
+			if(target.getUniqueId().equals(player.getUniqueId())) continue;
+			
 			if(data.isEnabledCSpy(target)) {
 				target.sendMessage(lang.getMessageStyle(player, event.getMessage()));
 			}

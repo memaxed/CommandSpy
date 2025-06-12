@@ -20,7 +20,7 @@ public class Joins implements Listener {
 		
 		Playerdata data = plugin.getPlayerdata();
 		Player player = event.getPlayer();
-		if(data.containsPlayer(player)) {
+		if(!data.containsPlayer(player)) {
 			data.createPlayer(player);
 		}
 		

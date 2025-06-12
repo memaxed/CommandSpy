@@ -19,7 +19,7 @@ cspy-check-other-perm: 'cspy.check.use.other'
 cspy-reload-perm: 'cspy.reload'
 
 #Should players be informed that they have had spying mode turned on/off by other player?
-other-feedback: true
+other-feedback: false
 
 #List of ignored commands that do not need to be tracked
 ignore-commands:
