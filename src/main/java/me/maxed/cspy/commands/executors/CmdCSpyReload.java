@@ -31,5 +31,4 @@ public class CmdCSpyReload implements CommandExecutor {
 		return true;
 	}
 	
-	
 }
