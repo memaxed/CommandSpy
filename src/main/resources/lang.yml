@@ -1,8 +1,11 @@
 #For correct messages display use PlaceholderAPI.
 #1.16+ HEX codes are supported.
+#You can use {PLAYER} for playerName or use %player_name% instead.
+
+#Plugin title.
+title: '&7[&aCommandSpy&7]'
 
 #Format of the plugin's main message
-#{PLAYER} - command sender (you can use %player_name%)
 #{COMMAND} - the command entered by the player.
 message-style: '&a{PLAYER} &7is using the server command: &a{COMMAND}'
 
@@ -10,26 +13,27 @@ no-perms: '&cYou do not have permission to do that.'
 
 work-with-player: '&cYou must be a player to do that.'
 
-player-is-offline: '&cThat player is not online.'
+#{OFFLINE} - entered offline playerName.
+player-is-offline: '&cPlayer {OFFLINE} is not online.'
 
-cspy-plugin-reloaded: '&7[&aCommandSpy&7] &7Plugin has been reloaded.'
+cspy-plugin-reloaded: '{TITLE} &7Plugin has been reloaded.'
 
 cspy-enabled: '&fYou have &aenabled&f command tracking mode.'
 
 cspy-disabled: '&fYou have &cdisabled&f command tracking mode.'
 
-cspy-enabled-other: '&fYou have &aenabled&f command tracking mode for %player_name%.'
+cspy-enabled-other: '&fYou have &aenabled&f command tracking mode for {PLAYER}.'
 
-cspy-disabled-other: '&fYou have &cdisabled&f command tracking mode for %player_name%.'
+cspy-disabled-other: '&fYou have &cdisabled&f command tracking mode for {PLAYER}.'
 
 cspy-check-enabled: '&fYour command tracking mode is &aenabled&f.'
 
 cspy-check-disabled: '&fYour command tracking mode is &cdisabled&f.'
 
-cspy-check-other-enabled: '&fCommand tracking mode for %player_name% is &aenabled&f.'
+cspy-check-other-enabled: '&fCommand tracking mode for {PLAYER} is &aenabled&f.'
 
-cspy-check-other-disabled: '&fCommand tracking mode for %player_name% is &cdisabled&f.'
+cspy-check-other-disabled: '&fCommand tracking mode for {PLAYER} is &cdisabled&f.'
 
-cspy-feedback-enabled: '&fYour command tracking mode was &aenabled&f by %player_name%.'
+cspy-feedback-enabled: '&fYour command tracking mode was &aenabled&f by {PLAYER}.'
 
-cspy-feedback-disabled: '&fYour command tracking mode was &cdisabled&f by %player_name%.'
+cspy-feedback-disabled: '&fYour command tracking mode was &cdisabled&f by {PLAYER}.'

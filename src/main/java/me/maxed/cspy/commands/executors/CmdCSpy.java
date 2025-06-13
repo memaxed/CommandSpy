@@ -49,19 +49,24 @@ public class CmdCSpy implements CommandExecutor {
 				player.sendMessage(lang.getNoPermissionsMessage(player));
 				return true;
 			}
+			
 			String targetName = args[0];
 			if(Bukkit.getPlayer(targetName) == null) {
-				player.sendMessage(lang.getPlayerIsOfflineMessage(player));
+				player.sendMessage(lang.getPlayerIsOfflineMessage(player, targetName));
 				return true;
 			}
+			
 			Player target = Bukkit.getPlayer(targetName);
 			boolean state = data.turnPlayerCSpy(target);
+			
 			if(state) player.sendMessage(lang.getCSpyCheckOtherEnabledMessage(target));
-			else player.sendMessage(lang.getCSpyCheckDisabledMessage(target));
+			else player.sendMessage(lang.getCSpyCheckOtherDisabledMessage(target));
+			
 			if(cfg.otherFeedback()) {
 				if(state) target.sendMessage(lang.getFeedbackEnabled(player));
 				else target.sendMessage(lang.getFeedbackDisabled(player));
 			}
+			
 			return true;
 		} 
 	

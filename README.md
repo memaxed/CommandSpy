@@ -1,7 +1,7 @@
 <p align="center"><img src="./assets/logo.png" alt="Logo"></p>
 
 ## About
-This is a simple and free plugin that adds a command tracking system to your Spigot server. This feature is mainly intended for server-staff: helpers, moderators and administrators. Granting access to regular players or donators is not recommended. To use the plugin correctly, you need to have permission management plugin such as LuckPerms as well as PlaceholderAPI for proper message displaying.
+This is a simple and free plugin that adds a command tracking system to your Spigot server. This feature is mainly intended for server-staff: helpers, moderators and administrators. Granting access to regular players or donators is not recommended. To use the plugin correctly, you need to have permission management plugin such as LuckPerms.
 
 ## Commands
 The plugin introduces the following commands:
@@ -18,8 +18,8 @@ Plugin provides two standard configuration files:
 Both files are generated automatically on first launch and can be edited to better fit your server's setup.
 
 ## Usage
-Players can toggle their own tracking mode using `/cspy`, provided they have the required permission.  
-They can also toggle tracking mode for other players using `/cspy <player>`, if they have the appropriate permission.
-
 When a player without the bypass permission executes a command, all players with command spying enabled will see a message showing the command and the player who used it.  
 This works exactly like the server console’s command logging, but inside the game.
+
+## Hooks
+Plugin supports PlaceholderAPI in `lang.yml` file.

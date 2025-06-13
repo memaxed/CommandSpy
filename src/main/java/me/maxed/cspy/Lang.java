@@ -15,6 +15,7 @@ public class Lang {
 	private File langFile;
 	private FileConfiguration lang;
 	private boolean papi;
+	private String title;
 	
 	private String noPerms;
 	private String WWP;
@@ -39,6 +40,8 @@ public class Lang {
 			plugin.saveResource("lang.yml", false);
 		}
 		this.lang = YamlConfiguration.loadConfiguration(langFile);
+		
+		this.title = get("title");
 		this.noPerms = get("no-perms");
 		this.WWP = get("work-with-player");
 		this.PIO = get("player-is-offline");
@@ -56,13 +59,18 @@ public class Lang {
 	}
 	
 	private String get(String index) {
-		return Hex.toChatColorString(lang.getString(index));
+		String str = lang.getString(index);
+		if(title != null) {
+			str = str.replace("{TITLE}", title);
+		}
+		return Hex.toChatColorString(str);
 	}
 	
 	private String papi(String str, Player player) {
 		if(papi) {
-			return PlaceholderAPI.setPlaceholders(player, str);
+			str = PlaceholderAPI.setPlaceholders(player, str);
 		}
+		str = str.replace("{PLAYER}", player.getName());
 		return str;
 	}
 	
@@ -77,8 +85,8 @@ public class Lang {
 		return this.WWP;
 	}
 	
-	public String getPlayerIsOfflineMessage(Player player) {
-		return papi(PIO, player);
+	public String getPlayerIsOfflineMessage(Player player, String offline) {
+		return papi(PIO.replace("{OFFLINE}", offline), player);
 	}
 	
 	public String getCSpyEnabledMessage(Player player) {
@@ -114,7 +122,7 @@ public class Lang {
 	}
 	
 	public String getMessageStyle(Player player, String command) {
-		String result = this.msgStyle.replace("{COMMAND}", command).replace("{PLAYER}", player.getName());
+		String result = this.msgStyle.replace("{COMMAND}", command);
 		return papi(result, player);
 	}
 	

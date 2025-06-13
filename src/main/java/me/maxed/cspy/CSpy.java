@@ -31,17 +31,11 @@ public class CSpy extends JavaPlugin {
 		lang = new Lang(this);
 		data = new Playerdata(this);
 		
-		if(!lang.isPapiEnabled()) {
-			getLogger().warning("PlaceholderAPI was not found on your server.");
-			getLogger().warning("Please install it to display messages correctly.");
+		if(lang.isPapiEnabled()) {
+			getLogger().info("§aPlaceholderAPI hooked.");
 		}
 		
 		getLogger().info("Enabled CommandSpy for " + Bukkit.getVersion() + ".");
-	}
-	
-	@Override
-	public void onDisable() {
-		
 	}
 	
 	@Override
@@ -70,6 +64,5 @@ public class CSpy extends JavaPlugin {
 		this.lang = new Lang(this);
 		this.data = new Playerdata(this);
 	}
-	
 	
 }
