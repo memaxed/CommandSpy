@@ -7,6 +7,7 @@ This is a simple and free plugin that adds a command tracking system to your Spi
 The plugin introduces the following commands:
 - `/cspy [player]` — Enables or disables your/other command tracking mode (similar to `/spy` in server-core plugins).
 - `/cspycheck [player]` — Checks whether you or another player is currently in tracking mode.
+- `/chistory <player>` — Displays the recent commands of the specified player (only if command logging is enabled).
 - `/cspyreload` — Reloads the plugin's configuration (admin-only).
 
 ## Configuration
@@ -20,6 +21,11 @@ Both files are generated automatically on first launch and can be edited to bett
 ## Usage
 When a player without the bypass permission executes a command, all players with command spying enabled will see a message showing the command and the player who used it.  
 This works exactly like the server console’s command logging, but inside the game.
+
+## Command logging
+This plugin includes a feature called command logging (turned off by default), which records commands entered by players who do not have the bypass permission.
+All logged commands are stored in a special SQLite database.
+To view a player's recent command history, use the command: `/chistory <player>`.
 
 ## Hooks
 Plugin supports PlaceholderAPI in `lang.yml` file.

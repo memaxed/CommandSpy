@@ -21,7 +21,7 @@ public class CmdCSpyReload implements CommandExecutor {
 		Cfg cfg = plugin.getCfg();
 		Lang lang = plugin.getLang();
 		if(!(sender.hasPermission(cfg.getCSpyReloadPerm()))) {
-			sender.sendMessage(lang.getNoPermissionsMessage(null));
+			sender.sendMessage(lang.getNoPermissionsMessage());
 			return true;
 		}
 		

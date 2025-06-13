@@ -6,8 +6,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.maxed.cspy.commands.executors.CmdCSpy;
 import me.maxed.cspy.commands.executors.CmdCSpyCheck;
 import me.maxed.cspy.commands.executors.CmdCSpyReload;
+import me.maxed.cspy.commands.executors.CmdCHistory;
 import me.maxed.cspy.commands.tabcompleters.TabCSpy;
 import me.maxed.cspy.listeners.*;
+import me.maxed.cspy.logger.CommandLogger;
 
 public class CSpy extends JavaPlugin {
 	
@@ -15,6 +17,7 @@ public class CSpy extends JavaPlugin {
 	private Lang lang;
 	private Playerdata data;
 	private Cfg cfg;
+	private CommandLogger logger;
 	
 	@Override
 	public void onEnable() {
@@ -26,16 +29,26 @@ public class CSpy extends JavaPlugin {
 		getCommand("cspycheck").setExecutor(new CmdCSpyCheck(this));
 		getCommand("cspycheck").setTabCompleter(new TabCSpy());
 		getCommand("cspyreload").setExecutor(new CmdCSpyReload(this));
+		getCommand("chistory").setExecutor(new CmdCHistory(this));
+		getCommand("chistory").setTabCompleter(new TabCSpy());;
 		
 		cfg = new Cfg(this);
 		lang = new Lang(this);
 		data = new Playerdata(this);
+		if(cfg.isCommandLoggerEnabled()) {
+			logger = new CommandLogger(this);
+		}
 		
 		if(lang.isPapiEnabled()) {
 			getLogger().info("§aPlaceholderAPI hooked.");
 		}
 		
 		getLogger().info("Enabled CommandSpy for " + Bukkit.getVersion() + ".");
+	}
+	
+	@Override
+	public void onDisable() {
+		logger.close();
 	}
 	
 	@Override
@@ -59,10 +72,17 @@ public class CSpy extends JavaPlugin {
 		return this.cfg;
 	}
 	
+	public CommandLogger getCommandLogger() {
+		return this.logger;
+	}
+	
 	public void reload() {
 		this.cfg = new Cfg(this);
 		this.lang = new Lang(this);
 		this.data = new Playerdata(this);
+		if(cfg.isCommandLoggerEnabled()) {
+			this.logger = new CommandLogger(this);
+		}	
 	}
 	
 }

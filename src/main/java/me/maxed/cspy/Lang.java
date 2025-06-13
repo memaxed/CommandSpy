@@ -17,21 +17,6 @@ public class Lang {
 	private boolean papi;
 	private String title;
 	
-	private String noPerms;
-	private String WWP;
-	private String PIO;
-	private String CSpyEnabled;
-	private String CSpyDisabled;
-	private String CSpyEnabledOther;
-	private String CSpyDisabledOther;
-	private String CSpyCheckEnabled;
-	private String CSpyCheckDisabled;
-	private String CSpyCheckOtherEnabled;
-	private String CSpyCheckOtherDisabled;
-	private String CSpyFeedbackEnabled;
-	private String CSpyFeedbackDisabled;
-	private String msgStyle;
-	
 	Lang(CSpy plugin) {
 		this.plugin = plugin;
 		this.papi = plugin.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null; 
@@ -40,22 +25,7 @@ public class Lang {
 			plugin.saveResource("lang.yml", false);
 		}
 		this.lang = YamlConfiguration.loadConfiguration(langFile);
-		
 		this.title = get("title");
-		this.noPerms = get("no-perms");
-		this.WWP = get("work-with-player");
-		this.PIO = get("player-is-offline");
-		this.CSpyEnabled = get("cspy-enabled");
-		this.CSpyDisabled = get("cspy-disabled");
-		this.CSpyEnabledOther = get("cspy-enabled-other");
-		this.CSpyDisabledOther = get("cspy-disabled-other");
-		this.CSpyCheckEnabled = get("cspy-check-enabled");
-		this.CSpyCheckDisabled = get("cspy-check-disabled");
-		this.CSpyCheckOtherEnabled = get("cspy-check-other-enabled");
-		this.CSpyCheckOtherDisabled = get("cspy-check-other-disabled");
-		this.CSpyFeedbackEnabled = get("cspy-feedback-enabled");
-		this.CSpyFeedbackDisabled = get("cspy-feedback-disabled");
-		this.msgStyle = get("message-style");
 	}
 	
 	private String get(String index) {
@@ -75,67 +45,88 @@ public class Lang {
 	}
 	
 	public String getNoPermissionsMessage(Player player) {
-		if(player == null) {
-			return noPerms;
-		}
-		return papi(noPerms, player);
+		return papi(get("no-perms"), player);
+	}
+	
+	public String getNoPermissionsMessage() {
+		return get("no-perms");
 	}
 	
 	public String getWorkWithPlayerMessage() {
-		return this.WWP;
+		return get("work-with-player");
 	}
 	
 	public String getPlayerIsOfflineMessage(Player player, String offline) {
-		return papi(PIO.replace("{OFFLINE}", offline), player);
+		return papi(get("player-is-offline"), player);
 	}
 	
 	public String getCSpyEnabledMessage(Player player) {
-		return papi(CSpyEnabled, player);
+		return papi(get("cspy-enabled"), player);
 	}
 	
 	public String getCSpyDisabledMessage(Player player) {
-		return papi(CSpyDisabled, player);
+		return papi(get("cspy-disabled"), player);
 	}
 	
 	public String getCSpyEnabledOtherMessage(Player player) {
-		return papi(CSpyEnabledOther, player);
+		return papi(get("cspy-enabled-other"), player);
 	}
 	
 	public String getCSpyDisabledOtherMessage(Player player) {
-		return papi(CSpyDisabledOther, player);
+		return papi(get("cspy-disabled-other"), player);
 	}
 	
 	public String getCSpyCheckEnabledMessage(Player player) {
-		return papi(CSpyCheckEnabled, player);
+		return papi(get("cspy-check-enabled"), player);
 	}
 	
 	public String getCSpyCheckDisabledMessage(Player player) {
-		return papi(CSpyCheckDisabled, player);
+		return papi(get("cspy-check-disabled"), player);
 	}
 	
 	public String getCSpyCheckOtherEnabledMessage(Player player) {
-		return papi(CSpyCheckOtherEnabled, player);
+		return papi(get("cspy-check-other-enabled"), player);
 	}
 	
 	public String getCSpyCheckOtherDisabledMessage(Player player) {
-		return papi(CSpyCheckOtherDisabled, player);
+		return papi(get("cspy-check-other-disabled"), player);
 	}
 	
 	public String getMessageStyle(Player player, String command) {
-		String result = this.msgStyle.replace("{COMMAND}", command);
+		String result = get("message-style").replace("{COMMAND}", command);
 		return papi(result, player);
 	}
 	
 	public String getFeedbackEnabled(Player player) {
-		return papi(CSpyFeedbackEnabled, player);
+		return papi(get("cspy-feedback-enabled"), player);
 	}
 	
 	public String getFeedbackDisabled(Player player) {
-		return papi(CSpyFeedbackDisabled, player);
+		return papi(get("cspy-feedback-disabled"), player);
 	}
 	
 	public String getReloaded() {
 		return get("cspy-plugin-reloaded");
+	}
+	
+	public String getCHistoryOff() {
+		return get("chistory-off");
+	}
+	
+	public String getCHistoryUsage() {
+		return get("chistory-usage");
+	}
+	
+	public String getCHistoryEmpty(String name) {
+		return get("chistory-empty").replace("{NAME}", name);
+	}
+	
+	public String getCHistoryHeader(String name, int limit) {
+		return get("chistory-header").replace("{NAME}", name).replace("{LIMIT}", String.valueOf(limit));
+	}
+	
+	public String getCHistoryItem(String name, String timestamp, String command) {
+		return get("chistory-style").replace("{NAME}", name).replace("{TIMESTAMP}", timestamp).replace("{COMMAND}", command);
 	}
 	
 	boolean isPapiEnabled() {

@@ -60,4 +60,28 @@ public class Cfg {
 		return cfg.getString("cspy-reload-perm");
 	}
 	
-}
+	public String getCHistoryPerm() {
+		return cfg.getString("chistory-perm");
+	}
+	
+	public String getCommandLoggerBypassPerm() {
+		return cfg.getString("command-logger.bypass-perm");
+	}
+	
+	public boolean isCommandLoggerEnabled() {
+		return cfg.getBoolean("command-logger.enabled");
+	}
+	
+	public int getCommandLoggerLimit() {
+		return cfg.getInt("command-logger.limit");
+	}
+	
+	public List<String> getIgnoreCommands() {
+		return cfg.getStringList("ignore-commands");
+	}
+	
+	public List<String> getIgnoreCommandsLogger() {
+		return cfg.getStringList("command-logger.ignore-commands");
+	}
+	
+} 

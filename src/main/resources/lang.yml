@@ -2,38 +2,57 @@
 #1.16+ HEX codes are supported.
 #You can use {PLAYER} for playerName or use %player_name% instead.
 
-#Plugin title.
+#Plugin title. You can use it as {TITLE}.
 title: '&7[&aCommandSpy&7]'
 
 #Format of the plugin's main message
 #{COMMAND} - the command entered by the player.
 message-style: '&a{PLAYER} &7is using the server command: &a{COMMAND}'
 
-no-perms: '&cYou do not have permission to do that.'
-
-work-with-player: '&cYou must be a player to do that.'
+no-perms: '&cYou do not have permission to do that'
 
 #{OFFLINE} - entered offline playerName.
-player-is-offline: '&cPlayer {OFFLINE} is not online.'
+player-is-offline: '&cPlayer {OFFLINE} is not online'
+
+cspy-enabled: '&fYou have &aenabled&f command tracking mode'
+
+cspy-disabled: '&fYou have &cdisabled&f command tracking mode'
+
+cspy-enabled-other: '&fYou have &aenabled&f command tracking mode for {PLAYER}'
+
+cspy-disabled-other: '&fYou have &cdisabled&f command tracking mode for {PLAYER}'
+
+cspy-check-enabled: '&fYour command tracking mode is &aenabled&f'
+
+cspy-check-disabled: '&fYour command tracking mode is &cdisabled&f'
+
+cspy-check-other-enabled: '&fCommand tracking mode for {PLAYER} is &aenabled&f'
+
+cspy-check-other-disabled: '&fCommand tracking mode for {PLAYER} is &cdisabled&f'
+
+cspy-feedback-enabled: '&fYour command tracking mode was &aenabled&f by {PLAYER}'
+
+cspy-feedback-disabled: '&fYour command tracking mode was &cdisabled&f by {PLAYER}'
+
+#PlaceholderAPI is not available below — use built-in placeholders instead.
+
+chistory-off: '&cCommand is not avaliable cause command-logging disabled'
+
+chistory-usage: '&cUsage: /chistory <player>'
+
+#{NAME} - playerName
+chistory-empty: '&bNo command history found for {NAME}'
+
+#{NAME} - playerName
+#{LIMIT} - limit for command logger in config.yml.
+chistory-header: '&bHere are the latest {LIMIT} commands entered by {NAME}:'
+
+#Format of every item in /chistory
+#{NAME} - playerName
+#{COMMAND} - command
+#{TIMESTAMP} - time when entered command.
+chistory-style: '&7[{TIMESTAMP}] &a{COMMAND}'
 
 cspy-plugin-reloaded: '{TITLE} &7Plugin has been reloaded.'
 
-cspy-enabled: '&fYou have &aenabled&f command tracking mode.'
-
-cspy-disabled: '&fYou have &cdisabled&f command tracking mode.'
-
-cspy-enabled-other: '&fYou have &aenabled&f command tracking mode for {PLAYER}.'
-
-cspy-disabled-other: '&fYou have &cdisabled&f command tracking mode for {PLAYER}.'
-
-cspy-check-enabled: '&fYour command tracking mode is &aenabled&f.'
-
-cspy-check-disabled: '&fYour command tracking mode is &cdisabled&f.'
-
-cspy-check-other-enabled: '&fCommand tracking mode for {PLAYER} is &aenabled&f.'
-
-cspy-check-other-disabled: '&fCommand tracking mode for {PLAYER} is &cdisabled&f.'
-
-cspy-feedback-enabled: '&fYour command tracking mode was &aenabled&f by {PLAYER}.'
-
-cspy-feedback-disabled: '&fYour command tracking mode was &cdisabled&f by {PLAYER}.'
+work-with-player: '&cYou must be a player to do that.'

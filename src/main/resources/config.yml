@@ -18,17 +18,41 @@ cspy-check-other-perm: 'cspy.check.use.other'
 #Perm for use "/cspyreload" command
 cspy-reload-perm: 'cspy.reload'
 
+#Perm for use "/chistory" command
+chistory-perm: 'cspy.chistory.use'
+
 #Should players be informed that they have had spying mode turned on/off by other player?
 other-feedback: false
 
 #List of ignored commands that do not need to be tracked
 ignore-commands:
- - login
- - l
- - register
- - reg
- - r
- - msg
- - tell
- - send
+- login
+- l
+- register
+- reg
+- r
+- msg
+- tell
+- send
 
+#Should plugin log every players command?
+command-logger:
+    #If true, plugin logs commands to the database and allows viewing history via /chistory
+    enabled: false
+    #limit for command /chistory
+    limit: 10
+    #Perm for bypassing logger
+    bypass-perm: 'cspy.logger.bypass'
+    #List of ignored command that do not need to log
+    ignore-commands:
+    - chistory
+    - login
+    - l
+    - reg
+    - register
+    - msg
+    - tell
+    - send
+    - chist
+    - commands
+    - cmds
