@@ -41,8 +41,8 @@ public class CmdCSpy implements CommandExecutor {
 		
 		if(len == 0) {
 			boolean state = data.turnPlayerCSpy(player);
-			if(state) player.sendMessage(lang.getCSpyCheckEnabledMessage(player));
-			else player.sendMessage(lang.getCSpyCheckDisabledMessage(player));
+			if(state) player.sendMessage(lang.getCSpyEnabledMessage(player));
+			else player.sendMessage(lang.getCSpyDisabledMessage(player));
 			return true;
 		} else {
 			if(!(player.hasPermission(cfg.getCSpyOtherPerm()))) {
@@ -59,8 +59,8 @@ public class CmdCSpy implements CommandExecutor {
 			Player target = Bukkit.getPlayer(targetName);
 			boolean state = data.turnPlayerCSpy(target);
 			
-			if(state) player.sendMessage(lang.getCSpyCheckOtherEnabledMessage(target));
-			else player.sendMessage(lang.getCSpyCheckOtherDisabledMessage(target));
+			if(state) player.sendMessage(lang.getCSpyEnabledOtherMessage(target));
+			else player.sendMessage(lang.getCSpyDisabledOtherMessage(target));
 			
 			if(cfg.otherFeedback()) {
 				if(state) target.sendMessage(lang.getFeedbackEnabled(player));
