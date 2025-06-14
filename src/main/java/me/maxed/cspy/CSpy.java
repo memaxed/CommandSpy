@@ -40,7 +40,7 @@ public class CSpy extends JavaPlugin {
 		}
 		
 		if(lang.isPapiEnabled()) {
-			getLogger().info("§aPlaceholderAPI hooked.");
+			getLogger().info("PlaceholderAPI hooked.");
 		}
 		
 		getLogger().info("Enabled CommandSpy for " + Bukkit.getVersion() + ".");
