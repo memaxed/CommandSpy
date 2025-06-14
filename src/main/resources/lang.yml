@@ -38,13 +38,13 @@ cspy-feedback-disabled: '&fYour command tracking mode was &cdisabled&f by {PLAYE
 
 chistory-off: '&cCommand is not avaliable cause command-logging disabled'
 
-chistory-usage: '&cUsage: /chistory <player>'
+chistory-usage: '&cUsage: /chistory <player> [limit:number]'
 
 #{NAME} - playerName
 chistory-empty: '&bNo command history found for {NAME}'
 
 #{NAME} - playerName
-#{LIMIT} - limit for command logger in config.yml.
+#{LIMIT} - limit for command logger in config.yml or player's entered value.
 chistory-header: '&bHere are the latest {LIMIT} commands entered by {NAME}:'
 
 #Format of every item in /chistory

@@ -39,7 +39,7 @@ ignore-commands:
 command-logger:
     #If true, plugin logs commands to the database and allows viewing history via /chistory
     enabled: false
-    #limit for command /chistory
+    #Default limit for command /chistory
     limit: 10
     #Perm for bypassing logger
     bypass-perm: 'cspy.logger.bypass'

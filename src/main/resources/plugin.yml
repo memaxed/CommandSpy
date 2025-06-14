@@ -1,7 +1,7 @@
 name: CommandSpy
 main: me.maxed.cspy.CSpy
 description: "Adds to your server command-tracking system"
-version: 1.2.2
+version: 1.2.4
 api-version: 1.13
 author: Memaxed
 softdepend: [PlaceholderAPI]
@@ -24,7 +24,7 @@ commands:
   - commandspyreload
  chistory:
   description: "Show list of logged commands"
-  usage: /chistory <player>
+  usage: /chistory <player> [limit]
   aliases:
   - chist
   - commands

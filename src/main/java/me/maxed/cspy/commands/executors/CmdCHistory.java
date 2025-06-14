@@ -44,26 +44,53 @@ public class CmdCHistory implements CommandExecutor {
 		
 		String request = args[0];
 		
-		List<Item> list = logger.getCommandHistory(request, cfg.getCommandLoggerLimit());
+		if(args.length == 1) {
+			
+			List<Item> list = logger.getCommandHistory(request, cfg.getCommandLoggerLimit());
+			
+			if(list.isEmpty()) {
+				sender.sendMessage(lang.getCHistoryEmpty(request));
+				return true;
+			}
+			
+			String msg = prettyPrint(list, request, cfg.getCommandLoggerLimit());
+			sender.sendMessage(msg);
+			
+			return true;
+		}		
 		
-		if(list.isEmpty()) {
-			sender.sendMessage(lang.getCHistoryEmpty(request));
+		if(args.length > 1) {
+			String lim = args[1];
+			int limit;
+			try {
+				limit = Integer.parseInt(lim);
+			} catch(Exception ex) {
+				sender.sendMessage(lang.getCHistoryUsage());
+				return true;
+			}
+			List<Item> list = logger.getCommandHistory(request, limit);
+			
+			if(list.isEmpty()) {
+				sender.sendMessage(lang.getCHistoryEmpty(request));
+				return true;
+			}
+			
+			String msg = prettyPrint(list, request, limit);
+			sender.sendMessage(msg);
+			
 			return true;
 		}
 		
-		String msg = prettyPrint(list, request);
-		sender.sendMessage(msg);
-		
 		return true;
+		
 	}
 	
-	private String prettyPrint(List<Item> list, String name) {
+	private String prettyPrint(List<Item> list, String name, int limit) {
 		Lang lang = plugin.getLang();
-		Cfg cfg = plugin.getCfg();
 		
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append(lang.getCHistoryHeader(name, cfg.getCommandLoggerLimit()) + '\n');
+		sb.append(lang.getCHistoryHeader(name, limit) + '\n');
 		for(Item item : list) {
 			sb.append(lang.getCHistoryItem(name, item.getTimestamp(), item.getCommand()) + '\n');
 		}

@@ -63,6 +63,8 @@ public class CmdCSpy implements CommandExecutor {
 			else player.sendMessage(lang.getCSpyDisabledOtherMessage(target));
 			
 			if(cfg.otherFeedback()) {
+				if(target.getUniqueId().equals(player.getUniqueId())) return true;
+				
 				if(state) target.sendMessage(lang.getFeedbackEnabled(player));
 				else target.sendMessage(lang.getFeedbackDisabled(player));
 			}

@@ -30,7 +30,7 @@ public class CSpy extends JavaPlugin {
 		getCommand("cspycheck").setTabCompleter(new TabCSpy());
 		getCommand("cspyreload").setExecutor(new CmdCSpyReload(this));
 		getCommand("chistory").setExecutor(new CmdCHistory(this));
-		getCommand("chistory").setTabCompleter(new TabCSpy());;
+		getCommand("chistory").setTabCompleter(new TabCSpy());
 		
 		cfg = new Cfg(this);
 		lang = new Lang(this);
